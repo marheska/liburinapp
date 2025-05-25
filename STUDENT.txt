@@ -1,0 +1,8 @@
+Silakan masukkan URL hasil deployment aplikasi Anda di bawah ini:
+
+https://
+
+Contoh:
+https://liburin-app.netlify.app/
+
+Pastikan URL ini dapat diakses publik dan aplikasi berjalan dengan baik.
