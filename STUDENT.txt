@@ -1,16 +1,6 @@
-<<<<<<< HEAD
-Silakan masukkan URL hasil deployment aplikasi Anda di bawah ini:
-
-https://
-
-Contoh:
-https://liburin-app.netlify.app/
-
-Pastikan URL ini dapat diakses publik dan aplikasi berjalan dengan baik.
-=======
 # Setelah aplikasi dideploy, tempelkan URL hasil deployment di bawah ini.
 
-https://<isi-url-deployment-anda-di-sini>
+https://marheska.github.io/liburinapp/
 
 Contoh:
 https://liburin-app.netlify.app
@@ -18,4 +8,3 @@ https://user.github.io/liburin-app/
 https://liburin-app.web.app
 
 Pastikan URL ini dapat diakses publik dan aplikasi berjalan sesuai kriteria submission.
->>>>>>> 2177e4c4bb4a469a1bae21fdd50709e06dbbd36b
