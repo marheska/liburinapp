@@ -26,4 +26,7 @@ module.exports = merge(common, {
     ],
   },
   plugins: [new CleanWebpackPlugin(), new MiniCssExtractPlugin()],
+  performance: {
+    hints: false,
+  },
 });

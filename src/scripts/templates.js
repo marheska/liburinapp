@@ -81,7 +81,6 @@ export function generateCommentsListErrorTemplate(message) {
   `;
 }
 
-<<<<<<< HEAD
 // Ambil judul cerita dari bagian awal description (baris pertama sebelum baris baru atau titik)
 // function extractTitleFromDescription(description) {
 //   if (!description) return '';
@@ -113,16 +112,6 @@ export function generateReportItemTemplate({ id, title, description, reporterNam
         <p class="report-item__description">${description}</p>
         <p class="report-item__reporter">Dilaporkan oleh: ${reporterName}</p>
       </div>
-=======
-export function generateReportItemTemplate({ id, title, description, reporterName }) {
-  return `
-    <div class="report-item">
-      <h3 class="report-item__title">
-        <a href="#/reports/${id}">${title}</a>
-      </h3>
-      <p class="report-item__description">${description}</p>
-      <p class="report-item__reporter">Dilaporkan oleh: ${reporterName}</p>
->>>>>>> 2177e4c4bb4a469a1bae21fdd50709e06dbbd36b
     </div>
   `;
 }
