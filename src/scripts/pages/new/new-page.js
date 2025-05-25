@@ -105,8 +105,13 @@ export default class NewPage {
             <div id="map-loading-container"></div>
           </div>
           <div class="new-form__location__lat-lng">
+<<<<<<< HEAD
             <input type="number" name="latitude" id="latitude-input" step="any" placeholder="Latitude, contoh: -6.175389" value="-6.175389">
             <input type="number" name="longitude" id="longitude-input" step="any" placeholder="Longitude, contoh: 106.827139" value="106.827139">
+=======
+            <input type="number" name="latitude" value="-6.175389">
+            <input type="number" name="longitude" value="106.827139">
+>>>>>>> 2177e4c4bb4a469a1bae21fdd50709e06dbbd36b
           </div>
         </div>
       </div>
@@ -370,6 +375,7 @@ export default class NewPage {
       <button class="btn" type="submit">Buat Cerita</button>
     `;
   }
+<<<<<<< HEAD
 
   getInitialCoordinates() {
     if (!this.#form) {
@@ -379,4 +385,6 @@ export default class NewPage {
     const lon = parseFloat(this.#form.elements.namedItem('longitude').value);
     return { lat, lon };
   }
+=======
+>>>>>>> 2177e4c4bb4a469a1bae21fdd50709e06dbbd36b
 }

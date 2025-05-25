@@ -1,6 +1,4 @@
 import { getAllData, deleteData } from '../../utils/db';
-import { getBookmarkedStories } from '../../utils/bookmark';
-import { generateReportItemTemplate } from '../../templates';
 
 export default class BookmarkPage {
   async render() {
@@ -27,6 +25,7 @@ export default class BookmarkPage {
     }
     const html = savedData.map((item) => `
       <div class="saved-item">
+        <img src="src/public/images/logo.png" alt="${item.title}" class="saved-item__image"/>
         <h3>${item.title}</h3>
         <p>${item.description}</p>
         <button class="delete-saved" data-id="${item.id}">Hapus</button>

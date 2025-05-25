@@ -25,30 +25,35 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 });
 
-// Push Notification Registration
-async function registerServiceWorkerAndPush() {
-  if ('serviceWorker' in navigator && 'PushManager' in window) {
+// Service Worker and Push Notification
+if ('serviceWorker' in navigator && 'PushManager' in window) {
+  window.addEventListener('load', async () => {
     try {
-      // Register service worker
-      const registration = await navigator.serviceWorker.register('/src/service-worker.js');
-      // Get VAPID public key from API
+      const reg = await navigator.serviceWorker.register('/src/service-worker.js');
+      // Ambil VAPID public key dari API
       const response = await fetch('https://your-api-endpoint.com/vapid-public-key'); // Ganti dengan endpoint API Anda
       const vapidPublicKey = await response.text();
-      // Subscribe to push
-      const subscription = await registration.pushManager.subscribe({
-        userVisibleOnly: true,
-        applicationServerKey: urlBase64ToUint8Array(vapidPublicKey)
-      });
-      // Kirim subscription ke server jika perlu
-      await fetch('https://your-api-endpoint.com/save-subscription', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(subscription)
-      });
-    } catch (error) {
-      console.error('Push notification registration failed:', error);
+
+      // Minta izin notifikasi
+      const permission = await Notification.requestPermission();
+      if (permission === 'granted') {
+        // Subscribe ke push
+        const subscription = await reg.pushManager.subscribe({
+          userVisibleOnly: true,
+          applicationServerKey: urlBase64ToUint8Array(vapidPublicKey),
+        });
+
+        // Kirim subscription ke server
+        await fetch('https://your-api-endpoint.com/save-subscription', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(subscription),
+        });
+      }
+    } catch (err) {
+      console.error('Push registration failed:', err);
     }
-  }
+  });
 }
 
 function urlBase64ToUint8Array(base64String) {
@@ -61,6 +66,3 @@ function urlBase64ToUint8Array(base64String) {
   }
   return outputArray;
 }
-
-// Panggil fungsi saat aplikasi load
-window.addEventListener('load', registerServiceWorkerAndPush);
